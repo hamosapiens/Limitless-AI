@@ -158,14 +158,14 @@ export default function BottomSheetReveal({
       <div
         ref={sheetRef}
         tabIndex={-1}
-        className="
-          relative w-full md:max-w-md mx-auto mb-8
-          min-h-[180px]
-          rounded-2xl bg-white shadow-lg outline-none
-          data-[state=open]:animate-slideUp motion-reduce:animate-none
-          focus-visible:ring-2 focus-visible:ring-blue-600
-          flex flex-col max-h-[80vh] pb-[env(safe-area-inset-bottom)]
-        "
+        className={`
+  relative w-full md:max-w-md mx-auto mb-8
+  min-h-[180px]
+  rounded-2xl bg-white shadow-lg outline-none
+  data-[state=open]:animate-slideUp motion-reduce:animate-none
+  focus-visible:ring-2 focus-visible:ring-blue-600
+  flex flex-col max-h-[80vh] pb-[env(safe-area-inset-bottom)]
+`}
         data-state="open"
       >
         {/* Close button, always top-right */}

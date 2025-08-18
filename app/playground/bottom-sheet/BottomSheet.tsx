@@ -34,8 +34,7 @@ export default function BottomSheet({
 
       {/* sheet */}
       <div
-        className="relative w-full bg-white rounded-t-2xl shadow-lg
-                   animate-[sheetIn_.28s_ease-out] motion-reduce:animate-none"
+        className={`relative w-full bg-white rounded-t-2xl shadow-lg animate-[sheetIn_.28s_ease-out] motion-reduce:animate-none`}
       >
         {/* little handle */}
         <div className="flex justify-center py-2">
