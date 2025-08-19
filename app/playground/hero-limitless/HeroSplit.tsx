@@ -1,6 +1,8 @@
 // app/components/HeroSplit.tsx
 import Image from "next/image";
 import Link from "next/link";
+// import { Button } from "@/components/ui/button";
+import LightOverlay from "./LightOverlay";
 
 type Logo = {
   src: string;
@@ -32,8 +34,34 @@ export default function HeroSplit({
 }: Props) {
   return (
     <section
-      className={`relative min-h-[80vh] isolate overflow-hidden bg-black text-white ${className ?? ""}`}
+      className={`relative isolate overflow-hidden bg-black text-white ${className ?? ""}`}
     >
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: `
+            /* vignette fade left→right */
+            linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,1) 70%, transparent 100%),
+            /* vertical grid lines */
+            linear-gradient(to right, rgba(255,255,255,0.08) 2px, transparent 2px),
+            /* horizontal grid lines */
+            linear-gradient(to bottom, rgba(255,255,255,0.08) 2px, transparent 2px)
+          `,
+          backgroundSize: `
+            auto,       /* vignette spans full */
+            50px 50px,/* vertical grid cells */
+            50px 50px /* horizontal grid cells */
+          `,
+          backgroundPosition: 'left top',
+        }}
+      />
+
+      {/* LEFT LIGHT OVERLAY */}
+      <LightOverlay
+        src="/images/65c46cd7d1f4702114ee364d_Hero_Left.webp"
+        alt="Light effect"
+      />
+
       {/* IMAGE
          - Mobile: relative block at top; face centered/bias right
          - Desktop (lg+): absolute, pinned right; crop from RIGHT using lg:object-left
@@ -69,95 +97,92 @@ export default function HeroSplit({
         />
       </div>
 
-      {/* COPY inside max-w-7xl */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 lg:h-[80vh]">
-        {/* Container with proper bottom alignment */}
-        <div className="py-10 sm:py-14 lg:h-full lg:flex lg:flex-col lg:justify-end lg:pb-20">
-          <div className="max-w-xl">
-            
-            <div>
-              {/* Announcement banner above title - improved for dark hero, left on desktop, center on mobile */}
-              <div className="mb-8 flex justify-center lg:justify-start">
-                <div className="relative rounded-full px-4 py-1.5 text-sm font-medium text-white/80 ring-1 ring-white/10 hover:ring-white/20 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/60 backdrop-blur-lg shadow-lg">
-                  <span className="mr-2">Announcing our next round of funding.</span>
-              
-                </div>
+      {/* MAIN CONTAINER - Now uses flexbox for dynamic spacing */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-8 sm:py-10 md:py-12 lg:min-h-screen lg:py-6 lg:flex lg:flex-col">
+        
+        {/* MAIN CONTENT - Centers dynamically when featured logos exist */}
+        <div className={`text-center lg:text-left ${logos.length > 0 ? 'lg:flex-1 lg:flex lg:flex-col lg:justify-center' : 'lg:flex lg:flex-col lg:justify-end lg:pb-8'}`}>
+          <div className="max-w-xl mt-0 mx-auto lg:mx-0 lg:mt-20">
+            {/* Announcement banner above title */}
+            <div className="mb-8 flex justify-center lg:justify-start">
+              <div className="relative rounded-full px-4 py-1.5 text-sm font-medium text-white/80 ring-1 ring-white/10 hover:ring-white/20 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/60 backdrop-blur-lg shadow-lg">
+                <span className="mr-2">Announcing our next round of funding.</span>
               </div>
-              {/* Title and content */}
-              <h1 className="text-4xl md:text-6xl font-semibold text-balance tracking-tight text-center lg:text-left">
-                {title}
-              </h1>
+            </div>
 
-              {description && (
-                <p className="mt-6 max-w-lg text-base md:text-lg text-white/75 text-balance text-center lg:text-left mx-auto lg:mx-0">
-                  {description}
-                </p>
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl font-semibold text-balance tracking-tight text-center lg:text-left">
+              {title}
+            </h1>
+
+            {/* Description */}
+            {description && (
+              <p className="mt-6 max-w-lg text-base md:text-lg text-white/75 text-balance text-center lg:text-left mx-auto lg:mx-0">
+                {description}
+              </p>
+            )}
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+              {ctaPrimary && (
+                <Link
+                  href={ctaPrimary.href}
+                  className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+                >
+                  {ctaPrimary.label}
+                </Link>
               )}
-
-              <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
-                {ctaPrimary && (
-                  <Link
-                    href={ctaPrimary.href}
-                    className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-white/90"
-                  >
-                    {ctaPrimary.label}
-                  </Link>
-                )}
-                {ctaSecondary && (
-                  <Link
-                    href={ctaSecondary.href}
-                    className="inline-flex items-center rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-medium text-white/90 hover:bg-white/10"
-                  >
-                    {ctaSecondary.label}
-                  </Link>
-                )}
-              </div>
-
-              {/* FEATURED IN — below CTAs */}
-              {logos.length > 0 && (
-                <div className="mt-12">
-                  <p className="text-xs uppercase tracking-wider text-white/60 text-center lg:text-left">
-                    Featured in
-                  </p>
-                  <div className="mt-4 grid grid-cols-2 gap-6 lg:flex lg:flex-wrap lg:items-center lg:gap-x-6 lg:gap-y-4 justify-items-center lg:justify-start">
-                    {logos.map((logo, i) => {
-                      // Calculate aspect ratio to reserve space - using 40px height instead of 24px
-                      const aspectRatio = (logo.width ?? 96) / (logo.height ?? 32);
-                      const reservedWidth = 40 * aspectRatio; // 40px height * aspect ratio
-                      
-                      return (
-                        <div
-                          key={i}
-                          className="flex items-center justify-center"
-                          style={{
-                            width: `${reservedWidth}px`,
-                            height: '40px',
-                            minWidth: '60px', // Minimum width for very tall logos
-                          }}
-                        >
-                          <Image
-                            src={logo.src}
-                            alt={logo.alt ?? "Logo"}
-                            width={logo.width ?? 96}
-                            height={logo.height ?? 32}
-                            className="opacity-70 grayscale contrast-125 transition hover:opacity-100"
-                            unoptimized
-                            style={{
-                              height: '40px',
-                              width: 'auto',
-                              maxWidth: '100%',
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+              {ctaSecondary && (
+                <Link
+                  href={ctaSecondary.href}
+                  className="inline-flex items-center rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-medium text-white/90 hover:bg-white/10"
+                >
+                  {ctaSecondary.label}
+                </Link>
               )}
-              {/* /FEATURED IN */}
             </div>
           </div>
         </div>
+
+        {/* FEATURED IN - Separate section that stays at bottom on desktop */}
+        {logos.length > 0 && (
+          <div className="mt-10 lg:pb-8 flex flex-col items-center lg:items-start">
+            <p className="text-xs uppercase tracking-wider text-white/60 text-center lg:text-left">
+              Featured in
+            </p>
+            <div className="mt-4 inline-grid grid-cols-[max-content_max-content] justify-center gap-x-20 gap-y-4 lg:flex lg:flex-wrap lg:items-center lg:gap-x-8 lg:gap-y-4 lg:justify-start">
+              {logos.map((logo, i) => {
+                const aspectRatio = (logo.width ?? 96) / (logo.height ?? 32);
+                const reservedWidth = 40 * aspectRatio;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center"
+                    style={{
+                      width: `${reservedWidth}px`,
+                      height: '40px',
+                      minWidth: '60px',
+                    }}
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt ?? "Logo"}
+                      width={logo.width ?? 96}
+                      height={logo.height ?? 32}
+                      className="opacity-70 grayscale contrast-125 transition hover:opacity-100"
+                      unoptimized
+                      style={{
+                        height: '40px',
+                        width: 'auto',
+                        maxWidth: '100%',
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
