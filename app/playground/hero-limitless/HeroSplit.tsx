@@ -131,7 +131,7 @@ export default function HeroSplit({
          - Desktop (lg+): absolute, pinned right; crop from RIGHT using lg:object-left
       */}
       
-      <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-auto lg:aspect-auto">
+      <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-auto lg:aspect-auto select-none">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -147,7 +147,7 @@ export default function HeroSplit({
           className="
             pointer-events-none absolute inset-y-0 left-0 hidden lg:block
             lg:w-[34%] xl:w-[28%] 2xl:w-[24%]
-            bg-[linear-gradient(to_right,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.48)_38%,rgba(0,0,0,0.12)_70%,transparent_100%)]
+            bg-[linear-gradient(to_right,rgba(0,0,0,1.92)_0%,rgba(0,0,0,0.48)_38%,rgba(0,0,0,0.12)_70%,transparent_100%)]
           "
         />
 
@@ -172,15 +172,17 @@ export default function HeroSplit({
             {/* Announcement banner above title */}
             <BlurElement delay={delayCounter++ * 80} inView={inView}>
               <div className="mb-8 flex justify-center lg:justify-start">
-                <div className="relative rounded-full px-4 py-1.5 text-sm font-medium text-white/80 ring-1 ring-white/10 hover:ring-white/20 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/60 backdrop-blur-lg shadow-lg">
-                  <span className="mr-2">Announcing our next round of funding.</span>
+                <div className="relative rounded-full px-4 py-1.5 text-[10px] sm:text-sm text-white/80 ring-1 ring-white/10 hover:ring-white/20 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/60 backdrop-blur-lg shadow-lg">
+                  <Link href="#">
+                    <span className="mr-2">Order Pendant and Unlimited Plan Bundle for <span className="line-through opacity-60 mr-1">$787</span> $399</span>
+                  </Link>
                 </div>
               </div>
             </BlurElement>
 
             {/* Title */}
             <BlurElement delay={delayCounter++ * 80} inView={inView}>
-              <h1 className="text-4xl md:text-6xl font-semibold text-balance tracking-tight leading-[1.2] text-center lg:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold text-balance tracking-tight leading-[1.2] text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
                 {title}
               </h1>
             </BlurElement>

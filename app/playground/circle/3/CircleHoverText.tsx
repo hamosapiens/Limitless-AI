@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  Factory,
   User,
   Layers3,
   Network,
@@ -184,7 +183,14 @@ export default function BuiltForPage() {
         color="#e0f2ff"
       /> */}
 
-      {/* Center logo and label */}
+          {/* Center logo and label */}
+      <div className="relative z-30 text-center">
+        {/* <Logo /> */}
+        {/* <Factory className="w-20 h-20 mx-auto text-blue-600 mb-4" /> */}
+        <h3 className="text-blue-900 text-xl md:text-2xl font-semibold tracking-tight">
+          Built for Scale <br /> and Performance
+        </h3>
+      </div>
 
     </div>
   )

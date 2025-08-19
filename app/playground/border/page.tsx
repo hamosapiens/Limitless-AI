@@ -1,5 +1,5 @@
 import MovingBorderCard from "./moving-border";
-import GlowMovingCardLight from "./GlowMovingCardLight";
+
 
 export default function Page() {
   return (
