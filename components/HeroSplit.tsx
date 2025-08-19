@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from 'react';
 import { Eye, AudioLines, Ear } from "lucide-react";
-import LightOverlay from "./LightOverlay";
+import LightOverlay from "@/components/LightOverlay";
 
 type Logo = {
   src: string;
@@ -111,12 +111,12 @@ export default function HeroSplit({
             linear-gradient(to bottom, rgba(255,255,255,0.08) 2px, transparent 2px)
           `,
           backgroundSize: `
-            auto,       /* vignette spans full */
-            50px 50px,/* vertical grid cells */
-            50px 50px /* horizontal grid cells */
+            auto,       
+            50px 50px,
+            50px 50px
           `,
           backgroundPosition: 'left top',
-          transitionDelay: '800ms', // Delay before grid appears
+          transitionDelay: '800ms', 
         }}
       />
 
@@ -126,10 +126,6 @@ export default function HeroSplit({
         alt="Light effect"
       />
 
-      {/* IMAGE
-         - Mobile: relative block at top; face centered/bias right
-         - Desktop (lg+): absolute, pinned right; crop from RIGHT using lg:object-left
-      */}
       
       <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-auto lg:aspect-auto select-none">
         <Image
@@ -141,7 +137,7 @@ export default function HeroSplit({
           sizes="(min-width:1024px) 50vw, 100vw"
         />
 
-        {/* Desktop fade (left → right), narrow so 1024px isn't over-faded */}
+        {/* Desktop fade  */}
         <div
           aria-hidden
           className="
@@ -151,7 +147,7 @@ export default function HeroSplit({
           "
         />
 
-        {/* Mobile fade (bottom → up) */}
+        {/* Mobile fade  */}
         <div
           aria-hidden
           className="
@@ -162,10 +158,10 @@ export default function HeroSplit({
         />
       </div>
 
-      {/* MAIN CONTAINER - Now uses flexbox for dynamic spacing */}
+      {/* MAIN CONTAINER  */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-8 sm:py-10 md:py-12 lg:min-h-screen lg:py-6 lg:flex lg:flex-col">
         
-        {/* MAIN CONTENT - Centers dynamically when featured logos exist */}
+        {/* MAIN CONTENT  */}
         <div className={`text-center lg:text-left ${logos.length > 0 ? 'lg:flex-1 lg:flex lg:flex-col lg:justify-center' : 'lg:flex lg:flex-col lg:justify-end lg:pb-8'}`}>
           <div ref={containerRef} className="max-w-xl mt-0 mx-auto lg:mx-0 lg:mt-20">
             

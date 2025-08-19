@@ -1,7 +1,10 @@
-import HeroSplit from './playground/hero-limitless/HeroSplit';
+import HeroSplit from '@/components/HeroSplit';
+import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
+
 
 export default function HeroLimitlessPage() {
   return (
+    <>
     <div className="relative">
       <HeroSplit
         title="Go beyond your mind’s limitations"
@@ -17,5 +20,13 @@ export default function HeroLimitlessPage() {
         ]}
       />
     </div>
+    <BottomSheetDisclaimer
+        title="Disclaimer"
+        side="right"              
+      >
+
+      </BottomSheetDisclaimer>
+    </>
+    
   );
 }
