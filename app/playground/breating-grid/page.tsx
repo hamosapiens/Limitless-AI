@@ -85,7 +85,7 @@ export default function BreathingGrid() {
       if (waveFront < prevFront) base = pick(PALETTE)
       prevFront = waveFront
 
-      const { r, g, b } = hexToRgb(base)
+      hexToRgb(base)
 
       for (const cell of cells) {
         const distToWave = Math.abs(cell.offset - waveFront)
