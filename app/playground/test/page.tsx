@@ -1,7 +1,8 @@
+// app/playground/hero-limitless/page.tsx
 import HeroSplitNew from '@/components/HeroSplitNew';
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
 
-export default function HeroLimitlessNewPage() {
+export default function Page() {
   return (
     <>
       <div className="relative">
