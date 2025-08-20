@@ -1,7 +1,7 @@
 import HeroSplit from './HeroSplit';
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
 
-export default function HeroLimitlessPage() {
+export default function HeroLimitlessTestPage() {
   return (
     <>
       <div className="relative">
