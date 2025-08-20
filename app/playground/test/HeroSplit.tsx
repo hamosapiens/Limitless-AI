@@ -35,6 +35,13 @@ interface BlurElementProps {
 
 const BlurElement = ({ children, delay, inView, className = "" }: BlurElementProps) => {
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    // Check if browser is Safari (especially mobile Safari)
+    const userAgent = typeof window !== 'undefined' ? window.navigator.userAgent : '';
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(userAgent));
+  }, []);
 
   useEffect(() => {
     if (!inView || isRevealed) return;
@@ -52,13 +59,20 @@ const BlurElement = ({ children, delay, inView, className = "" }: BlurElementPro
       style={{
         filter: isRevealed ? "blur(0px)" : "blur(12px)",
         opacity: isRevealed ? 1 : 0.4,
-        transform: isRevealed ? "translateY(0px)" : "translateY(3px)",
+        transform: isSafari
+          ? 'translateZ(0)'
+          : isRevealed
+            ? "translateY(0px)"
+            : "translateY(3px)",
+        // Add will-change for better performance
+        willChange: isSafari ? 'transform, opacity, filter' : 'auto',
       }}
     >
       {children}
     </div>
   );
 };
+
 
 export default function HeroSplit({
   title,

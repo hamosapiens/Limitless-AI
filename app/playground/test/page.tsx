@@ -1,4 +1,4 @@
-import HeroSplit from '@/components/HeroSplit';
+import HeroSplit from './HeroSplit';
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
 
 export default function HeroLimitlessPage() {

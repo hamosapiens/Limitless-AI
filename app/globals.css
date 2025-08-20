@@ -120,3 +120,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Improve Safari rendering performance */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .blur-element {
+      -webkit-font-smoothing: subpixel-antialiased;
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+}
+
+/* Prevent flash of unstyled content */
+.blur-element {
+  content-visibility: auto;
+  contain: layout style paint;
+}
