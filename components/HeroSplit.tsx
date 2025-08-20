@@ -185,7 +185,7 @@ export default function HeroSplit({
 
             {/* Description with word-by-word reveal and icons */}
             {description && (
-              <div className="mt-6 text-base md:text-lg text-white/75 text-balance text-center lg:text-left mx-auto lg:mx-0">
+              <div className="mt-6 text-base md:text-lg leading-relaxed text-white/75 md:text-balance max-w-sm md:max-w-md lg:max-w-lg text-center lg:text-left mx-auto lg:mx-0">
                 {words.map((word, index) => {
                   const cleanWord = word.replace(/[.,!?;:]/, '').toLowerCase();
                   const iconConfig = ICONS[cleanWord as keyof typeof ICONS];
