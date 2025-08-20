@@ -1,12 +1,12 @@
-// app/playground/hero-limitless/page.tsx
-import HeroSplitNew from '@/components/HeroSplitNew';
+// /test/page.tsx
+import HeroSplit from "./components/HeroSplit"; 
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
 
 export default function Page() {
   return (
     <>
       <div className="relative">
-        <HeroSplitNew
+        <HeroSplit
           title="Go beyond your mind’s limitations"
           description="Personalized AI powered by what you’ve seen, said, and heard."
           ctaPrimary={{ label: "Get Limitless", href: "/#" }}
@@ -20,6 +20,7 @@ export default function Page() {
           ]}
         />
       </div>
+
       <BottomSheetDisclaimer title="Disclaimer" side="right">
         {/* optional content */}
       </BottomSheetDisclaimer>
