@@ -74,7 +74,7 @@ const BlurElement = ({ children, delay, inView, className = "" }: BlurElementPro
 };
 
 
-export default function HeroSplit({
+export default function HeroSplitNew({
   title,
   description,
   ctaPrimary,
