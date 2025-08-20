@@ -1,11 +1,11 @@
-import HeroSplit from '@/components/HeroSplitNew';
+import HeroSplitNew from '@/components/HeroSplitNew';
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
 
-export default function HeroLimitlessPage() {
+export default function HeroLimitlessNewPage() {
   return (
     <>
       <div className="relative">
-        <HeroSplit
+        <HeroSplitNew
           title="Go beyond your mind’s limitations"
           description="Personalized AI powered by what you’ve seen, said, and heard."
           ctaPrimary={{ label: "Get Limitless", href: "/#" }}
