@@ -8,6 +8,7 @@ export default function Page() {
       <div className="relative">
         <HeroSplitNew
           title="Go beyond your mind’s limitations"
+          description="Personalized AI powered by what you’ve seen, said, and heard."
           ctaPrimary={{ label: "Get Limitless", href: "/#" }}
           ctaSecondary={{ label: "Learn More", href: "/#" }}
           imageSrc="/images/Amm_Limitless_In-Situ_1920x1080.jpg"

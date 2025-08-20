@@ -35,13 +35,6 @@ interface BlurElementProps {
 
 const BlurElement = ({ children, delay, inView, className = "" }: BlurElementProps) => {
   const [isRevealed, setIsRevealed] = useState(false);
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    // Check if browser is Safari (especially mobile Safari)
-    const userAgent = typeof window !== 'undefined' ? window.navigator.userAgent : '';
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(userAgent));
-  }, []);
 
   useEffect(() => {
     if (!inView || isRevealed) return;
@@ -59,20 +52,13 @@ const BlurElement = ({ children, delay, inView, className = "" }: BlurElementPro
       style={{
         filter: isRevealed ? "blur(0px)" : "blur(12px)",
         opacity: isRevealed ? 1 : 0.4,
-        transform: isSafari
-          ? 'translateZ(0)'
-          : isRevealed
-            ? "translateY(0px)"
-            : "translateY(3px)",
-        // Add will-change for better performance
-        willChange: isSafari ? 'transform, opacity, filter' : 'auto',
+        transform: isRevealed ? "translateY(0px)" : "translateY(3px)",
       }}
     >
       {children}
     </div>
   );
 };
-
 
 export default function HeroSplitNew({
   title,
@@ -199,7 +185,7 @@ export default function HeroSplitNew({
 
             {/* Description with word-by-word reveal and icons */}
             {description && (
-              <div className="mt-6 text-base md:text-lg text-white/75 text-balance text-center lg:text-left mx-auto lg:mx-0">
+              <div className="mt-6 text-base md:text-lg leading-relaxed text-white/75 md:text-balance max-w-sm md:max-w-md lg:max-w-lg text-center lg:text-left mx-auto lg:mx-0">
                 {words.map((word, index) => {
                   const cleanWord = word.replace(/[.,!?;:]/, '').toLowerCase();
                   const iconConfig = ICONS[cleanWord as keyof typeof ICONS];
