@@ -10,15 +10,23 @@ export default function FeaturedLogos({ logos = [] }: { logos?: Logo[] }) {
   return (
     <div className="w-full">
       <div className="mt-10 lg:pb-8 flex flex-col items-center lg:items-start">
-        <p className="text-xs uppercase tracking-wider text-white/60 text-center lg:text-left">Featured in</p>
-        <div className="mt-4 inline-grid grid-cols-[max-content_max-content] justify-center gap-x-20 gap-y-4 lg:flex lg:flex-wrap lg:items-center lg:gap-x-8 lg:gap-y-4 lg:justify-start">
+        <p className="text-xs uppercase tracking-wider text-white/60 text-center lg:text-left">
+          Featured in
+        </p>
+
+<div className="
+  mt-4 
+  inline-grid grid-cols-[max-content_max-content] 
+  justify-center gap-x-20 gap-y-4 
+  lg:flex lg:flex-wrap lg:items-center lg:gap-x-8 lg:gap-y-4 lg:justify-start
+">
           {logos.map((logo, i) => {
             const aspectRatio = (logo.width ?? 96) / (logo.height ?? 32);
             const reservedWidth = 40 * aspectRatio;
             return (
               <div
                 key={i}
-                className="flex items-center justify-center w-full"
+                className="flex items-center justify-center"
                 style={{ width: `${reservedWidth}px`, height: '40px', minWidth: '60px' }}
               >
                 <Image

@@ -57,11 +57,14 @@ export default function HeroSplit({
           />
         </div>
 
-        {logos?.length ? (
-          <BlurReveal delay={delayFn(10)} inView={inView}>
-            <FeaturedLogos logos={logos} />
-          </BlurReveal>
-        ) : null}
+
+        {/* wrapp in way so it will shows center on smaller screens */}
+{logos?.length ? (
+  <BlurReveal delay={delayFn(10)} inView={inView} as="div" className="w-full">
+    <FeaturedLogos logos={logos} />
+  </BlurReveal>
+) : null}
+
       </div>
     </section>
   );

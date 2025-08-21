@@ -21,7 +21,10 @@ export default function HeroText({
   ctaSecondary?: CTA;
   inView: boolean;
 }) {
-  const delay = useStaggered(80);
+
+const delay = useStaggered(80);
+
+const totalSteps = 1 + (description ? description.split(/\s+/).length : 0);
 
   return (
     <div className="max-w-xl mt-0 mx-auto lg:mx-0 lg:mt-20">
@@ -43,11 +46,12 @@ export default function HeroText({
         </h1>
       </BlurReveal>
 
-      <WordsWithIcons text={description} inView={inView} startDelay={delay(2)} />
+    <WordsWithIcons text={description} inView={inView} startDelay={delay(2)} />
 
-      <BlurReveal delay={delay(3)} inView={inView}>
-        <CTAs primary={ctaPrimary} secondary={ctaSecondary} />
-      </BlurReveal>
+
+<BlurReveal delay={delay(totalSteps)} inView={inView}>
+  <CTAs primary={ctaPrimary} secondary={ctaSecondary} />
+</BlurReveal>
     </div>
   );
 }
