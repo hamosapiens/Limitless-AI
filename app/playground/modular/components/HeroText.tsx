@@ -22,7 +22,7 @@ export default function HeroText({
   inView: boolean;
 }) {
 
-const delay = useStaggered(80);
+const delay = useStaggered(150);
 
 const totalSteps = 1 + (description ? description.split(/\s+/).length : 0);
 
