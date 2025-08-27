@@ -1,21 +1,23 @@
 // components/ModalBlurDialogFancy.tsx
-'use client';
+"use client";
 
-import * as React from 'react';
-import BlurReveal from '@/components/BlurReveal';
+import * as React from "react";
+import BlurReveal from "@/components/BlurReveal";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogClose,
-} from '@/components/ui/dialog';
-import { XIcon } from 'lucide-react';
+} from "@/components/ui/dialog";
+import { XIcon } from "lucide-react";
+import { RichTextPB } from "@/components/RichTextPB";
 
 export type FancyModalItem = {
   title: string;
   description?: string;
   imageSrc?: string;
+  modalContent?: string;
 };
 
 export function ModalBlurDialogFancy({
@@ -27,13 +29,13 @@ export function ModalBlurDialogFancy({
   onOpenChange: (open: boolean) => void;
   item?: FancyModalItem | null;
 }) {
-const visible = !!item;
+  const visible = !!item;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={false}
-className="
+        className="
   fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
   w-[92%] max-w-[660px] min-h-[320px]
   rounded-2xl border border-white/10 
@@ -47,10 +49,7 @@ className="
   data-[state=open]:zoom-in-95  data-[state=closed]:zoom-out-95
   duration-100 ease-out
 "
-
       >
-
-
         {visible && (
           <div className="relative">
             <BlurReveal inView={open} delay={100} as="div" className="w-full">
@@ -69,18 +68,35 @@ className="
                 </div>
               </DialogHeader>
 
-              <div className="px-6 py-6 space-y-4">
-                {!!item!.imageSrc && (
+{!!item!.imageSrc && (
+  <img
+  src={item!.imageSrc}
+  alt={item!.title}
+  width={1200}
+  height={300}
+  className="
+    w-full h-[50vh] min-h-[336px] object-cover object-top
+  "
+/>
+
+)}
+
+
+              <div className="px-8 pt-9 pb-4 space-y-4">
+                {/* {!!item!.imageSrc && (
                   <img
                     src={item!.imageSrc}
                     alt={item!.title}
                     className="w-full h-56 object-cover object-top rounded-xl border border-white/10"
                   />
-                )}
+                )} */}
                 {!!item!.description && (
-                  <p className="text-white/80 text-base leading-relaxed">
+                  <p>
                     {item!.description}
                   </p>
+                )}
+                {!!item.modalContent && (
+                  <RichTextPB text={item?.modalContent} />
                 )}
               </div>
             </BlurReveal>

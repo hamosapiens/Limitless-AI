@@ -9,29 +9,29 @@ import BlurReveal from "@/components/BlurReveal";
 const ICON_CONFIG = [
   {
     name: "brain",
-    title: "Discover Pendant",
+    title: "Your Second Brain",
     description: "Experience the future of wearable.",
     alt: "Brain",
     svgSize: { width: 51, height: 42 }
   },
   {
     name: "eye",
-    title: "Discover Pendant", 
-    description: "Experience the future of wearable.",
+    title: "See Clearly", 
+    description: "Capture the details you might miss.",
     alt: "Eye",
     svgSize: { width: 53, height: 42 }
   },
   {
     name: "mouth",
-    title: "Discover Pendant",
-    description: "Experience the future of wearable.", 
+    title: "Speak Your Mind",
+    description: "And let AI handle the rest.", 
     alt: "Mouth",
     svgSize: { width: 71, height: 42 }
   },
   {
     name: "ear",
-    title: "Discover Pendant",
-    description: "Experience the future of wearable.",
+    title: "Listening Smarter",
+    description: "Sound into lasting knowledge.",
     alt: "Ear", 
     svgSize: { width: 39.96, height: 42 }
   }

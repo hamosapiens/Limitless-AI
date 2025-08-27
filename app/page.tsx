@@ -29,49 +29,63 @@ export default function Page() {
           heading="Get to know Limitless."
           items={[
             {
-              eyebrow: "Personalized AI powered by what you've seen, said, and heard.",
-              title: "AI‑opening possibilities.",
+              eyebrow: "An intuitive way to capture unexpected strokes of genius.",
+              title: "Future unlocked",
               imageSrc: "/images/GT2TKmVWgAE4ine.jpeg",
               href: "/#",
               textLight: true,
+              modalContent:
+       "Stay engaged without the worry of writing things down.\n\nGather insights about your life by better understanding how you communicate.\n\nKeep conversations private with permission-based data protection."
+
+
             },
                         {
-              eyebrow: "Personalized AI powered by what you've seen, said, and heard.",
-              title: "Fast that lasts.",
+              eyebrow: "Preserve conversations and ask your personalized AI anything.",
+              title: "Ask Limitless AI anything",
               imageSrc: "/images/app-mkp.jpg",
               // colorOverlay: "linear-gradient(358.27deg, #E8B170 1.08%, rgba(232, 177, 112, 0.5) 20.86%, rgba(232, 177, 112, 0.05) 34.99%)",
               textLight: true,
               href: "/#",
+              modalContent:
+              "Effortlessly retrieve conversations with an intuitive app.\n\nBookmark moments by tapping Pendant to easily mark a moment.\n\nAsk your personalized AI anything using the latest AI models."
             },
             {
-              eyebrow: "Cutting‑Edge Sensors",
-              title: "Capture what matters.",
+              eyebrow: "Keep conversations private with permission-based data protection.",
+              title: "Privacy matters",
               imageSrc: "/images/Amm_Limitless_Sweater_1080x1350.jpg",
               textLight: true,
               href: "/#",
+              modalContent:
+              "Stay engaged without the worry of writing things down.\n\nGather insights about your life by better understanding how you communicate.\n\nKeep conversations private with permission-based data protection."
             },
             {
-              eyebrow: "Innovation",
-              title: "Beautiful and durable.",
+              eyebrow: "Versatile magnetic clasp design — wear pendant however you like.",
+              title: "Beautiful and durable",
               imageSrc: "/images/Group 132.jpg",
               textLight: true,
               href: "/#",
+              modalContent:
+              "Effortlessly retrieve conversations with an intuitive app.\n\nBookmark moments by tapping Pendant to easily mark a moment.\n\nAsk your personalized AI anything using the latest AI models."
             },
             {
-              eyebrow: "Innovation",
-              title: "Beautiful and durable.",
+              eyebrow: "Bookmark moments by tapping Pendant to easily mark a moment.",
+              title: "Bookmark moments",
               imageSrc: "/images/GU8VX4sW4AAN52n.jpeg",
               colorOverlay: "linear-gradient(0.04deg, #000000 0.03%, rgba(0, 0, 0, 0.5) 33.55%, rgba(0, 0, 0, 0.1) 67.99%)",
               textLight: true,
               href: "/#",
+              modalContent:
+                            "Stay engaged without the worry of writing things down.\n\nGather insights about your life by better understanding how you communicate.\n\nKeep conversations private with permission-based data protection."
             },
                         {
-              eyebrow: "Innovation",
-              title: "Beautiful and durable.",
+              eyebrow: "Stay engaged without the worry of writing things down.",
+              title: "Small & lightweight",
               imageSrc: "/images/notes.jpg",
               colorOverlay: "linear-gradient(0.04deg, #000000 0.01%, rgba(0, 0, 0, 0.1) 33.55%, rgba(0, 0, 0, 0.1) 67.99%)",
               textLight: true,
               href: "/#",
+              modalContent:
+              "Effortlessly retrieve conversations with an intuitive app.\n\nBookmark moments by tapping Pendant to easily mark a moment.\n\nAsk your personalized AI anything using the latest AI models."
             },
 
           ]}

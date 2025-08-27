@@ -20,6 +20,7 @@ type RailItem = {
   textLight?: boolean;
   colorOverlay?: React.ReactNode | string;
   description?: string;
+  modalContent?: string; 
 };
 
 interface CardShellProps {
@@ -69,6 +70,7 @@ const CardShell = React.memo(function CardShell({ item, index, seqActive, onOpen
       title: item.title,
       description: item.description,
       imageSrc: item.imageSrc,
+      modalContent: item.modalContent,
     });
 
   const handleCardClick = (e: MouseEvent<HTMLDivElement | HTMLAnchorElement>) => {
