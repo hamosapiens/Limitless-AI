@@ -137,3 +137,59 @@
   content-visibility: auto;
   contain: layout style paint;
 }
+
+/* in globals.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* chrome / safari */
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* firefox */
+}
+
+
+/* Add to your globals.css or app.css */
+
+/* Apply cursor pointer to all links */
+a, a:hover, a:focus, a:active {
+  cursor: pointer !important;
+}
+
+/* Apply to elements with href attribute */
+[href] {
+  cursor: pointer !important;
+}
+
+/* Apply to button elements */
+button, button:hover, button:focus, button:active {
+  cursor: pointer !important;
+}
+
+/* Apply to clickable elements */
+[role="button"], [role="link"] {
+  cursor: pointer !important;
+}
+
+/* Apply to elements with onClick handlers (if you want) */
+[onclick] {
+  cursor: pointer !important;
+}
+
+/* Tailwind-specific: Override cursor-auto */
+.cursor-auto {
+  cursor: pointer !important;
+}
+
+/* For Next.js Link components */
+a[href], 
+a[href]:hover, 
+a[href]:focus, 
+a[href]:active {
+  cursor: pointer !important;
+}
+
+/* For any element that should be clickable */
+.clickable,
+.cursor-clickable {
+  cursor: pointer !important;
+}

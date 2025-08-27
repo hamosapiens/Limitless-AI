@@ -13,7 +13,7 @@ export default function LightOverlay({ src, alt = "", className }: Props) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 400) // delay for effect
+    const timer = setTimeout(() => setVisible(true), 800) // delay for effect
     return () => clearTimeout(timer)
   }, [])
 

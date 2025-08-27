@@ -1,9 +1,13 @@
-import HeroSplit from '@/components/HeroSplit';
+// /test/page.tsx
+import HeroSplit from "@/components/HeroSplit";
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
+import FeatureRail from "@/components/FeatureRail";
+import IntroVideoSection from './playground/intro/IntroVideoSection';
 
-export default function HeroLimitlessPage() {
+
+export default function Page() {
   return (
-    <>
+  <main className="space-y-0 lg:space-y-0">
       <div className="relative">
         <HeroSplit
           title="Go beyond your mind’s limitations"
@@ -19,9 +23,81 @@ export default function HeroLimitlessPage() {
           ]}
         />
       </div>
-      <BottomSheetDisclaimer title="Disclaimer" side="right">
+
+
+        <FeatureRail
+          heading="Get to know Limitless."
+          items={[
+            {
+              eyebrow: "Personalized AI powered by what you've seen, said, and heard.",
+              title: "AI‑opening possibilities.",
+              imageSrc: "/images/GT2TKmVWgAE4ine.jpeg",
+              href: "/#",
+              textLight: true,
+            },
+                        {
+              eyebrow: "Personalized AI powered by what you've seen, said, and heard.",
+              title: "Fast that lasts.",
+              imageSrc: "/images/app-mkp.jpg",
+              // colorOverlay: "linear-gradient(358.27deg, #E8B170 1.08%, rgba(232, 177, 112, 0.5) 20.86%, rgba(232, 177, 112, 0.05) 34.99%)",
+              textLight: true,
+              href: "/#",
+            },
+            {
+              eyebrow: "Cutting‑Edge Sensors",
+              title: "Capture what matters.",
+              imageSrc: "/images/Amm_Limitless_Sweater_1080x1350.jpg",
+              textLight: true,
+              href: "/#",
+            },
+            {
+              eyebrow: "Innovation",
+              title: "Beautiful and durable.",
+              imageSrc: "/images/Group 132.jpg",
+              textLight: true,
+              href: "/#",
+            },
+            {
+              eyebrow: "Innovation",
+              title: "Beautiful and durable.",
+              imageSrc: "/images/GU8VX4sW4AAN52n.jpeg",
+              colorOverlay: "linear-gradient(0.04deg, #000000 0.03%, rgba(0, 0, 0, 0.5) 33.55%, rgba(0, 0, 0, 0.1) 67.99%)",
+              textLight: true,
+              href: "/#",
+            },
+                        {
+              eyebrow: "Innovation",
+              title: "Beautiful and durable.",
+              imageSrc: "/images/notes.jpg",
+              colorOverlay: "linear-gradient(0.04deg, #000000 0.01%, rgba(0, 0, 0, 0.1) 33.55%, rgba(0, 0, 0, 0.1) 67.99%)",
+              textLight: true,
+              href: "/#",
+            },
+
+          ]}
+          className="bg-black pb-16 pt-12 sm:pt-28"
+        />
+
+
+      <IntroVideoSection />
+
+
+
+      {/* Scroll Sequence */}
+      {/* <div className="min-h-screen">
+      <ScrollSequence
+        frameCount={16}
+        basePath="/seq/seq_"
+        ext="webp"
+        showFrameCounter
+        heightVh={200}
+      />
+    </div> */}
+
+          <BottomSheetDisclaimer title="Disclaimer" side="right">
         {/* optional content */}
       </BottomSheetDisclaimer>
-    </>
+      
+    </main>
   );
 }
