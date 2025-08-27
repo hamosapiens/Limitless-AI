@@ -196,7 +196,7 @@ export default function FeatureRail({
   autoPlayInterval = 5000,
 }: FeatureRailProps) {
   const { ref: headingRef, inView: headingInView } = useInViewOnce<HTMLDivElement>({
-    rootMargin: "0px 0px -20% 0px",
+  rootMargin: "400px 0px -10px 0px",
     threshold: 0
   });
 
@@ -300,7 +300,7 @@ useEffect(() => {
           </CarouselContent>
 
           {showNavigation && items.length > 1 && (
-            <div className="flex items-center justify-center gap-4 mt-8 sm:mt-12 sm:justify-end">
+            <div className="flex items-center justify-center gap-4 mt-4 sm:mt-6 sm:justify-end">
               <button
                 onClick={handlePrev}
                 disabled={!canScrollPrev}

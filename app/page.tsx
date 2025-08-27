@@ -75,7 +75,7 @@ export default function Page() {
             },
 
           ]}
-          className="bg-black pb-16 pt-12 sm:pt-28"
+          className="bg-black pb-10 pt-12 sm:pt-28"
         />
 
 

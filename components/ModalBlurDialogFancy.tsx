@@ -45,7 +45,7 @@ className="
   data-[state=open]:animate-in  data-[state=closed]:animate-out
   data-[state=open]:fade-in-0   data-[state=closed]:fade-out-0
   data-[state=open]:zoom-in-95  data-[state=closed]:zoom-out-95
-  duration-150 ease-out
+  duration-100 ease-out
 "
 
       >
