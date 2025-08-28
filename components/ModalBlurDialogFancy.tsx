@@ -70,16 +70,19 @@ export function ModalBlurDialogFancy({
 
 {!!item!.imageSrc && (
   <img
-  src={item!.imageSrc}
-  alt={item!.title}
-  width={1200}
-  height={300}
-  className="
-    w-full h-[50vh] min-h-[336px] object-cover object-top
-  "
-/>
-
+    src={item!.imageSrc}
+    alt={item!.title}
+    width={1200}
+    height={300}
+    className="
+      w-full 
+      h-[30vh] min-h-[200px]
+      sm:h-[50vh] sm:min-h-[336px]
+      object-cover object-top
+    "
+  />
 )}
+
 
 
               <div className="px-8 pt-9 pb-4 space-y-4">
