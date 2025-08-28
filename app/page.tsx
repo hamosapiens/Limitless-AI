@@ -26,7 +26,7 @@ export default function Page() {
 
 
         <FeatureRail
-          heading="Get to know Limitless."
+          heading="Go beyond the screen"
           items={[
             {
               eyebrow: "An intuitive way to capture unexpected strokes of genius.",

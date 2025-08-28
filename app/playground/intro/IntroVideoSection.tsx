@@ -68,6 +68,7 @@ export default function IntroVideoSection() {
           }}
         >
           <div className="mx-auto bg-white rounded-3xl shadow-[10_10px_60px_rgba(0,0,0,0.03)] shadow-[rgba(0, 0, 0, 0.05) 0px 1px 2px 0px] p-6 sm:p-10">
+            
             {/* Title */}
             <div className="text-center mt-8 mb-18">
               <h2 className="flex flex-col sm:flex-row flex-wrap items-center sm:items-baseline justify-center gap-x-1 gap-y-2 max-w-4xl mx-auto leading-tight">

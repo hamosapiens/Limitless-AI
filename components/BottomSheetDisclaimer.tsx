@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { Info, Globe, Github } from "lucide-react";
+import { Copyright , Globe, Github } from "lucide-react";
 
 type Props = {
   title?: string;
@@ -101,11 +101,11 @@ export default function BottomSheetDisclaimer({
         onClick={open ? closePanel : openPanel}
         aria-expanded={open}
         aria-controls={open ? labelId : undefined}
-        className={`fixed ${side === "right" ? "right-4" : "left-4"} bottom-[calc(1rem+env(safe-area-inset-bottom))] ${zIndexClass}
-                   grid h-12 w-12 place-items-center rounded-full bg-black text-white shadow-lg cursor-pointer
+        className={`fixed ${side === "right" ? "right-5" : "left-4"} bottom-[calc(1rem+env(safe-area-inset-bottom))] ${zIndexClass}
+                   grid h-10 w-10 place-items-center rounded-full bg-black/80 text-white shadow-lg cursor-pointer border border-neutral-200/20 backdrop-blur-lg
                    hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600`}
       >
-        <Info className="h-5 w-5" aria-hidden="true" />
+        <Copyright  className="h-5 w-5" aria-hidden="true" />
         <span className="sr-only">Open disclaimer</span>
       </button>
 
@@ -113,7 +113,7 @@ export default function BottomSheetDisclaimer({
       {mounted && open &&
         createPortal(
           <div
-            className={`fixed ${sideClass} bottom-[calc(5.5rem+env(safe-area-inset-bottom))] ${zIndexClass}`}
+            className={`fixed ${sideClass} bottom-[calc(4.9rem+env(safe-area-inset-bottom))] ${zIndexClass}`}
             role="dialog"
             aria-modal="true"
             aria-labelledby={labelId}
@@ -141,7 +141,7 @@ export default function BottomSheetDisclaimer({
               <div className="flex items-start justify-between gap-3 p-4">
                 <div className="flex items-center gap-2">
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-black text-white">
-                    <Info className="h-4 w-4" aria-hidden="true" />
+                    <Copyright  className="h-4 w-4" aria-hidden="true" />
                   </span>
                   <h2 id={labelId} className="text-base font-semibold">
                     {title}
@@ -166,7 +166,7 @@ export default function BottomSheetDisclaimer({
    <p className="text-[13px]">
           This is an independent demo project created solely for portfolio and
           job application purposes. It is not affiliated with, endorsed by, or
-          representing <strong>Limitless AI</strong>. All trademarks, logos,
+          representing <strong><u><a href="https://www.limitless.ai/?ref=hamo" target="_blank">Limitless AI</a></u></strong>. All trademarks, logos,
           and brand names are the property of their respective owners.
         </p>
                     </>
@@ -180,7 +180,7 @@ export default function BottomSheetDisclaimer({
   className="inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
 >
   <Globe className="h-4 w-4" aria-hidden="true" />
-  Website
+  My Website
 </a>
 <a
   href="https://github.com/hamosapiens/Limitless-AI"
