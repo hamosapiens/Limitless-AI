@@ -85,18 +85,24 @@ const CardShell = React.memo(function CardShell({ item, index, seqActive, onOpen
 
   const CardContent = (
     <>
-      <div className="absolute inset-0">
-        <Image
-          src={item.imageSrc}
-          alt={item.imageAlt ?? item.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(min-width:1024px) 24vw, (min-width:768px) 45vw, (min-width:640px) 55vw, 80vw"
-          priority={index < 3}
-          loading={index < 3 ? "eager" : "lazy"}
-          quality={85}
-        />
-      </div>
+<div className="absolute inset-0">
+  <Image
+    src={item.imageSrc}
+    alt={item.imageAlt ?? item.title}
+    fill
+    className="
+      object-cover transition-transform duration-700 group-hover:scale-105
+      before:content-[''] before:absolute before:inset-0 
+      before:bg-gradient-to-t before:from-black/70 before:via-black/20 before:to-transparent 
+      before:pointer-events-none
+    "
+    sizes="(min-width:1024px) 24vw, (min-width:768px) 45vw, (min-width:640px) 55vw, 80vw"
+    priority={index < 3}
+    loading={index < 3 ? 'eager' : 'lazy'}
+    quality={85}
+  />
+</div>
+
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
 

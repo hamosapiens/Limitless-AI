@@ -37,7 +37,7 @@ export function ModalBlurDialogFancy({
         showCloseButton={false}
         className="
   fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-  w-[92%] max-w-[660px] min-h-[320px]
+  w-[92%] max-w-[560px] 
   rounded-2xl border border-white/10 
   bg-gradient-to-b from-neutral-900/90 to-neutral-950
   backdrop-blur-md
@@ -67,7 +67,7 @@ export function ModalBlurDialogFancy({
                   </DialogClose>
                 </div>
               </DialogHeader>
-
+{/* 
 {!!item!.imageSrc && (
   <img
     src={item!.imageSrc}
@@ -81,11 +81,11 @@ export function ModalBlurDialogFancy({
       object-cover object-top
     "
   />
-)}
+)} */}
 
 
 
-              <div className="px-8 pt-9 pb-4 space-y-4">
+              <div className="px-8 pt-7 pb-4 space-y-4">
                 {/* {!!item!.imageSrc && (
                   <img
                     src={item!.imageSrc}
