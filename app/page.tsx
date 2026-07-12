@@ -1,7 +1,8 @@
-import HeroSplit from "@/components/hero/HeroSplit";
+// /test/page.tsx
+import HeroSplit from "@/components/HeroSplit";
 import BottomSheetDisclaimer from "@/components/BottomSheetDisclaimer";
-import FeatureRail from "@/components/feature-rail/FeatureRail";
-import IntroVideoSection from '@/components/intro-video/IntroVideoSection';
+import FeatureRail from "@/components/FeatureRail";
+import IntroVideoSection from './playground/intro/IntroVideoSection';
 
 
 export default function Page() {
@@ -14,7 +15,6 @@ export default function Page() {
           ctaPrimary={{ label: "Get Limitless", href: "/#" }}
           ctaSecondary={{ label: "Learn More", href: "/#" }}
           imageSrc="/images/Amm_Limitless_In-Situ_1920x1080.jpg"
-          imageAlt="Limitless Pendant, a wearable AI device, worn in everyday life"
           logos={[
             { src: "/logos/forbes.svg", alt: "Forbes" },
             { src: "/logos/fast.svg", alt: "TechCrunch" },
@@ -95,8 +95,21 @@ export default function Page() {
 
       <IntroVideoSection />
 
+
+
+      {/* Scroll Sequence */}
+      {/* <div className="min-h-screen">
+      <ScrollSequence
+        frameCount={16}
+        basePath="/seq/seq_"
+        ext="webp"
+        showFrameCounter
+        heightVh={200}
+      />
+    </div> */}
+
           <BottomSheetDisclaimer title="Disclaimer" side="right">
- 
+        {/* optional content */}
       </BottomSheetDisclaimer>
       
     </main>

@@ -28,8 +28,7 @@ export default function HeroBackground({ inView }: { inView: boolean }) {
       />
 
       {/* light overlay now BELOW the fade */}
-      {/* Purely decorative lighting effect — empty alt so screen readers skip it */}
-      <LightOverlay src="/images/65c46cd7d1f4702114ee364d_Hero_Left.webp" />
+      <LightOverlay src="/images/65c46cd7d1f4702114ee364d_Hero_Left.webp" alt="Light effect" />
 
       {/* Desktop: bottom fade OVER everything in the background stack */}
       <div

@@ -1,3 +1,4 @@
+// components/FeatureRail.tsx
 'use client';
 
 import React, { MouseEvent } from "react";
@@ -7,8 +8,7 @@ import { useInViewOnce } from "@/hooks/useInViewOnce";
 import BlurReveal from "@/components/BlurReveal";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { FeatureDetailModal, type FeatureModalItem } from "./FeatureDetailModal";
-import { cn } from "@/lib/utils";
+import { ModalBlurDialogFancy, type FancyModalItem } from "@/components/ModalBlurDialogFancy";
 
 type RailItem = {
   eyebrow?: string;
@@ -27,7 +27,7 @@ interface CardShellProps {
   item: RailItem;
   index: number;
   seqActive: boolean;
-  onOpenModal: (payload: FeatureModalItem) => void;
+  onOpenModal: (payload: FancyModalItem) => void;
 }
 
 const CardShell = React.memo(function CardShell({ item, index, seqActive, onOpenModal }: CardShellProps) {
@@ -160,7 +160,7 @@ const CardShell = React.memo(function CardShell({ item, index, seqActive, onOpen
           role="button"
           tabIndex={0}
           aria-label={`Open details for ${item.title}`}
-          className={cn(baseCardClasses, 'cursor-pointer')}
+          className={baseCardClasses + ' cursor-pointer'}
         >
           {CardContent}
         </a>
@@ -177,7 +177,7 @@ const CardShell = React.memo(function CardShell({ item, index, seqActive, onOpen
           role="button"
           tabIndex={0}
           aria-label={`Open details for ${item.title}`}
-          className={cn(baseCardClasses, 'cursor-pointer')}
+          className={baseCardClasses + ' cursor-pointer'}
         >
           {CardContent}
         </div>
@@ -213,7 +213,7 @@ export default function FeatureRail({
   const [canScrollNext, setCanScrollNext] = useState(false);
 
 const [open, setOpen] = useState(false);
-const [activeItem, setActiveItem] = useState<FeatureModalItem | null>(null);
+const [activeItem, setActiveItem] = useState<FancyModalItem | null>(null);
 
 // Close -> clear content after the exit duration (200ms)
 useEffect(() => {
@@ -222,39 +222,19 @@ useEffect(() => {
   return () => window.clearTimeout(t);
 }, [open]);
 
-  const onOpenModal = useCallback((payload: FeatureModalItem) => {
+  const onOpenModal = useCallback((payload: FancyModalItem) => {
     setActiveItem(payload);
     setOpen(true);
   }, []);
 
-  // Auto-play (paused while the tab is hidden, so backgrounded carousels don't burn cycles;
-  // skipped entirely under prefers-reduced-motion per WCAG 2.2.2)
+  // Auto-play
   useEffect(() => {
     if (!api || !autoPlay) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let id: number | null = null;
-    const tick = () => {
+    const id = window.setInterval(() => {
       if (api.canScrollNext()) api.scrollNext();
       else api.scrollTo(0);
-    };
-    const start = () => {
-      if (id != null) return;
-      id = window.setInterval(tick, autoPlayInterval);
-    };
-    const stop = () => {
-      if (id == null) return;
-      window.clearInterval(id);
-      id = null;
-    };
-    const onVisibility = () => (document.hidden ? stop() : start());
-
-    if (!document.hidden) start();
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => {
-      stop();
-      document.removeEventListener("visibilitychange", onVisibility);
-    };
+    }, autoPlayInterval);
+    return () => window.clearInterval(id);
   }, [api, autoPlay, autoPlayInterval]);
 
   // Update nav state + clean subscription correctly
@@ -286,7 +266,7 @@ useEffect(() => {
   const carouselOpts = useMemo(
     () => ({
       align: "start" as const,
-      loop: true,
+      loop: false,
       skipSnaps: false,
       containScroll: "trimSnaps" as const,
       slidesToScroll: 1,
@@ -363,7 +343,7 @@ useEffect(() => {
         </Carousel>
       </div>
 
-      <FeatureDetailModal open={open} onOpenChange={setOpen} item={activeItem} />
+      <ModalBlurDialogFancy open={open} onOpenChange={setOpen} item={activeItem} />
     </section>
   );
 }

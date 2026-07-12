@@ -108,7 +108,7 @@ function DialogContent({
           <DialogClose
             className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md
                        bg-black/30 text-white/90 ring-1 ring-white/20 backdrop-blur transition
-                       hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
+                       hover:bg-black/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close"
           >
             <XIcon className="h-4 w-4" />

@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import BlurReveal from '@/components/BlurReveal';
-import WordsWithIcons from './WordsWithIcons';
-import CTAs from './CTAs';
+import WordsWithIcons from '@/components/WordsWithIcons';
+import CTAs from '@/components/CTAs';
 import { useStaggered } from '@/hooks/useStaggered';
 
 type CTA = { label: string; href: string };

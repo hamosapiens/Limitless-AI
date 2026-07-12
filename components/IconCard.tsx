@@ -1,3 +1,4 @@
+// components/IconCard.tsx
 import { ReactNode } from "react";
 
 interface IconCardProps {
@@ -29,7 +30,7 @@ export default function IconCard({ icon, title, description, rounded = 'all', ic
         {icon}
       </span>
       <div className="flex flex-col gap-1">
-        <h3 className="text-[15px] sm:text-[14px] text-black/70 tracking-tight">{title}</h3>
+        <h6 className="text-[15px] sm:text-[14px] text-black/70 tracking-tight">{title}</h6>
         <p className="text-[12px] sm:text-[11px] text-black/40 text-balance tracking-tight">{description}</p>
       </div>
     </div>
