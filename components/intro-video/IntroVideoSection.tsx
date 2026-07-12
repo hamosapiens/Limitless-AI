@@ -178,7 +178,7 @@ export default function IntroVideoSection() {
               <BlurReveal as="div" delay={delay(4)} inView={descInView}>
                 <div className="relative inline-block group">
                     <button
-                      className={`relative z-10 inline-flex cursor-pointer mb-2 items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out gap-3 backdrop-blur-md ${loading ? "opacity-70 pointer-events-none" : ""}`}
+                      className={`relative z-10 inline-flex cursor-pointer mb-2 items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-[background-color,box-shadow,opacity] duration-300 ease-out gap-3 backdrop-blur-md ${loading ? "opacity-70 pointer-events-none" : ""}`}
                       onClick={() => {
                         setLoading(true);
                         window.location.href = "https://buy.stripe.com/14k2bs6rF39bcsU9BJ";
