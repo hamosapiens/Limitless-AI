@@ -1,4 +1,3 @@
-// app/components/FullWidthDotsBand.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -17,7 +16,7 @@ type Props = {
   fillColor?: string; // color for dots
 };
 
-export default function FullWidthDotsBand({
+export default function DotWaveBackground({
   active = true,
   height = 270,
   spacing = 22,
@@ -39,7 +38,15 @@ export default function FullWidthDotsBand({
   const canvas = canvasRef.current!;
   const ctx = canvas.getContext('2d')!;
 
-    const getDPR = () => (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1);
+    // Cap DPR at 2: 3x+ displays don't add visible detail for a dot grid,
+    // but they do multiply canvas pixels (and per-frame draw cost) 2.25x+.
+    const getDPR = () => (typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 2) : 1);
+
+    // Respect the OS "reduce motion" setting: render one static frame instead
+    // of continuously animating the wave.
+    const reduceMotion =
+      typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const shouldAnimate = active && !reduceMotion;
 
     let Wcss = 0, Hcss = 0, ratio = 1;
 
@@ -99,7 +106,7 @@ export default function FullWidthDotsBand({
       const maxDist = Math.hypot(Wcss / exScale, Hcss / eyScale);
       const pxPerMs = speed / 1000;
 
-      if (active) {
+      if (shouldAnimate) {
         waveOffset = (waveOffset + dt * pxPerMs) % Math.max(1, maxDist - thickness * 0.8);
       }
 
@@ -126,7 +133,7 @@ export default function FullWidthDotsBand({
         ctx.fill();
       }
 
-      if (active) {
+      if (shouldAnimate) {
         rafRef.current = requestAnimationFrame(animate);
       } else {
         rafRef.current = null;
@@ -143,7 +150,7 @@ export default function FullWidthDotsBand({
       rafRef.current = null;
     };
 
-    if (active) start();
+    if (shouldAnimate) start();
     else {
       requestAnimationFrame((ts) => animate(ts));
       stop();

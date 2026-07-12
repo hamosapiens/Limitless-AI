@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-
-type Logo = { src: string; alt?: string; width?: number; height?: number };
+import type { Logo } from '@/lib/types';
 
 export default function FeaturedLogos({ logos = [] }: { logos?: Logo[] }) {
   if (!logos.length) return null;

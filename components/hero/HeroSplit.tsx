@@ -2,13 +2,12 @@
 
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { useStaggered } from '@/hooks/useStaggered';
-import HeroBackground from '@/components/HeroBackground';
-import HeroMedia from '@/components/HeroMedia';
-import HeroText from '@/components/HeroText';
-import FeaturedLogos from '@/components/FeaturedLogos';
+import HeroBackground from './HeroBackground';
+import HeroMedia from './HeroMedia';
+import HeroText from './HeroText';
+import FeaturedLogos from './FeaturedLogos';
 import BlurReveal from '@/components/BlurReveal';
-
-type Logo = { src: string; alt?: string; width?: number; height?: number };
+import type { Logo } from '@/lib/types';
 
 type Props = {
   title: string;

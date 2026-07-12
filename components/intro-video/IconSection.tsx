@@ -1,4 +1,3 @@
-// components/IconSection.tsx
 import { useState } from "react";
 import IconCard from "./IconCard";
 import Image from "next/image";
@@ -57,7 +56,7 @@ export default function IconSection() {
         <RotateCcw className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" />
       </button>
 
-      <div className="flex gap-[2px] md:items-center md:justify-center h-full overflow-x-auto snap-x snap-mandatory md:overflow-visible scrollbar-hide no-scrollbar [&>*]:min-w-[calc(100vw-2rem)] md:[&>*]:min-w-0 pl-[1px] md:pl-0">
+      <div className="flex gap-[2px] md:items-center md:justify-center h-full overflow-x-auto snap-x snap-mandatory md:overflow-visible no-scrollbar [&>*]:min-w-[calc(100vw-2rem)] md:[&>*]:min-w-0 pl-[1px] md:pl-0">
         {ICON_CONFIG.map((iconConfig, index) => {
           const iconPath = usePng 
             ? `/illustrations/${iconConfig.name}.png`

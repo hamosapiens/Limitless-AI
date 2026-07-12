@@ -1,4 +1,3 @@
-// components/ModalBlurDialogFancy.tsx
 "use client";
 
 import * as React from "react";
@@ -11,23 +10,23 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { XIcon } from "lucide-react";
-import { RichTextPB } from "@/components/RichTextPB";
+import { RichText } from "./RichText";
 
-export type FancyModalItem = {
+export type FeatureModalItem = {
   title: string;
   description?: string;
   imageSrc?: string;
   modalContent?: string;
 };
 
-export function ModalBlurDialogFancy({
+export function FeatureDetailModal({
   open,
   onOpenChange,
   item,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  item?: FancyModalItem | null;
+  item?: FeatureModalItem | null;
 }) {
   const visible = !!item;
 
@@ -59,7 +58,7 @@ export function ModalBlurDialogFancy({
                     {item!.title}
                   </DialogTitle>
                   <DialogClose
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white/90 ring-1 ring-white/20 backdrop-blur transition hover:bg-black/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white/90 ring-1 ring-white/20 backdrop-blur transition hover:bg-black/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
                     aria-label="Close"
                   >
                     <XIcon className="h-4 w-4" />
@@ -67,39 +66,15 @@ export function ModalBlurDialogFancy({
                   </DialogClose>
                 </div>
               </DialogHeader>
-{/* 
-{!!item!.imageSrc && (
-  <img
-    src={item!.imageSrc}
-    alt={item!.title}
-    width={1200}
-    height={300}
-    className="
-      w-full 
-      h-[30vh] min-h-[200px]
-      sm:h-[50vh] sm:min-h-[336px]
-      object-cover object-top
-    "
-  />
-)} */}
-
-
 
               <div className="px-8 pt-7 pb-4 space-y-4">
-                {/* {!!item!.imageSrc && (
-                  <img
-                    src={item!.imageSrc}
-                    alt={item!.title}
-                    className="w-full h-56 object-cover object-top rounded-xl border border-white/10"
-                  />
-                )} */}
                 {!!item!.description && (
                   <p>
                     {item!.description}
                   </p>
                 )}
                 {!!item.modalContent && (
-                  <RichTextPB text={item?.modalContent} />
+                  <RichText text={item?.modalContent} />
                 )}
               </div>
             </BlurReveal>

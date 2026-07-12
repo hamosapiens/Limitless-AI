@@ -4,8 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { useInViewOnce } from "@/hooks/useInViewOnce";
 import { useStaggered } from "@/hooks/useStaggered";
 import BlurReveal from "@/components/BlurReveal";
-import FullWidthDotsBand from "@/components/FullWidthDotsBand";
-import IconSection from "@/components/IconSection";
+import DotWaveBackground from "./DotWaveBackground";
+import IconSection from "./IconSection";
+
+const HEADLINE = "Meet Pendant.";
+const TAGLINE = "The world's most wearable AI.";
+const DESCRIPTION =
+  "Pendant is an elegant, lightweight wearable that remembers what you say throughout the day, from in-person meetings, impromptu conversations, and personal insights.";
 
 export default function IntroVideoSection() {
   const [loading, setLoading] = useState(false);
@@ -46,7 +51,7 @@ export default function IntroVideoSection() {
     <section ref={sectionRef}>
       {/* static black header band */}
       <div className="bg-black h-[220px] sm:h-[250px] flex flex-col justify-end">
-        <FullWidthDotsBand
+        <DotWaveBackground
           active={stageInView}
           height={140}
           spacing={10}
@@ -67,14 +72,25 @@ export default function IntroVideoSection() {
             transform: stageInView ? "translateY(-180px)" : "translateY(0px)",
           }}
         >
-          <div className="mx-auto bg-white rounded-3xl shadow-[10_10px_60px_rgba(0,0,0,0.03)] shadow-[rgba(0, 0, 0, 0.05) 0px 1px 2px 0px] p-6 sm:p-10">
-            
+          {/* Plain inline style: Tailwind v4's arbitrary shadow syntax mis-parses a
+              color-first box-shadow value here (color-mix ends up absorbing the
+              offsets), so the utility-class form silently produces no shadow at all. */}
+          <div
+            className="mx-auto bg-white rounded-3xl p-6 sm:p-10"
+            style={{ boxShadow: "0px 1px 2px 0px rgba(0,0,0,0.05)" }}
+          >
             {/* Title */}
             <div className="text-center mt-8 mb-18">
-              <h2 className="flex flex-col sm:flex-row flex-wrap items-center sm:items-baseline justify-center gap-x-1 gap-y-2 max-w-4xl mx-auto leading-tight">
+              <h2
+                className="flex flex-col sm:flex-row flex-wrap items-center sm:items-baseline justify-center gap-x-1 gap-y-2 max-w-4xl mx-auto leading-tight"
+                aria-label={`${HEADLINE} ${TAGLINE}`}
+              >
                 {/* Main headline */}
-                <span className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 text-center sm:text-left">
-                  {["Meet", "Pendant."].map((word, i) => (
+                <span
+                  className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 text-center sm:text-left"
+                  aria-hidden="true"
+                >
+                  {HEADLINE.split(" ").map((word, i) => (
                     <BlurReveal
                       key={i}
                       delay={delay(i)}
@@ -88,8 +104,11 @@ export default function IntroVideoSection() {
                 </span>
 
                 {/* Tagline */}
-                <span className="text-lg sm:text-2xl font-[300] text-neutral-300 tracking-tighter text-center sm:text-left">
-                  {"The world's most wearable AI.".split(" ").map((word, i) => (
+                <span
+                  className="text-lg sm:text-2xl font-[300] text-neutral-300 tracking-tighter text-center sm:text-left"
+                  aria-hidden="true"
+                >
+                  {TAGLINE.split(" ").map((word, i) => (
                     <BlurReveal
                       key={i + 10}
                       delay={delay(i + 2)}
@@ -136,10 +155,13 @@ export default function IntroVideoSection() {
 
             {/* Description + CTA (own threshold) */}
             <div className="text-center flex-col items-center" ref={descRef}>
-              <div className="mx-auto max-w-xl sm:text-md text-neutral-500 font-normal tracking-normal leading-normal mb-10 flex flex-wrap gap-x-2 gap-y-2 justify-center">
-                {"Pendant is an elegant, lightweight wearable that remembers what you say throughout the day, from in-person meetings, impromptu conversations, and personal insights."
-                  .split(" ")
-                  .map((word, i) => (
+              <div
+                className="mx-auto max-w-xl sm:text-md text-neutral-500 font-normal tracking-normal leading-normal mb-10 flex flex-wrap gap-x-2 gap-y-2 justify-center"
+                role="text"
+                aria-label={DESCRIPTION}
+              >
+                <span aria-hidden="true" className="contents">
+                  {DESCRIPTION.split(" ").map((word, i) => (
                     <BlurReveal
                       key={i}
                       delay={delay(i)}
@@ -150,6 +172,7 @@ export default function IntroVideoSection() {
                       {word}
                     </BlurReveal>
                   ))}
+                </span>
               </div>
 
               <BlurReveal as="div" delay={delay(4)} inView={descInView}>
@@ -208,7 +231,7 @@ export default function IntroVideoSection() {
             style={{ zIndex: 0 }}
           >
             <div className="mx-auto max-w-7xl w-full px-6 hidden sm:block">
-              <FullWidthDotsBand
+              <DotWaveBackground
                 active={stageInView}
                 speed={100}
                 height={230}
