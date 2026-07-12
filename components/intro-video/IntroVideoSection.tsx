@@ -218,7 +218,7 @@ export default function IntroVideoSection() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative min-h-[250px] sm:min-h-[280px]">
           <div
             className="absolute left-0 right-0 bottom-9 px-6"
             style={{ zIndex: 1 }}
