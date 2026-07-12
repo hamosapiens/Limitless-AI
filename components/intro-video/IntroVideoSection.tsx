@@ -69,7 +69,7 @@ export default function IntroVideoSection() {
           style={{
             maxWidth: stageInView ? "80rem" : "60rem",
             width: "100%",
-            transform: stageInView ? "translateY(-180px)" : "translateY(0px)",
+            transform: stageInView ? "translateY(-120px)" : "translateY(0px)",
           }}
         >
           {/* Plain inline style: Tailwind v4's arbitrary shadow syntax mis-parses a
